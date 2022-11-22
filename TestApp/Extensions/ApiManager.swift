@@ -7,7 +7,7 @@
 
 import Foundation
 
-let top250MoviesUrl = "https://imdb-api.com/en/API/Top250Movies/k_6asfhpne"
+let top250MoviesUrl = "https://imdb-api.com/en/API/Top250Movies/k_nnlqtizq"
 
 class ApiManager {
     
@@ -32,6 +32,8 @@ class ApiManager {
         }
        
         let session = URLSession.shared
+        
+        
         let request = URLRequest(url: dataURL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
