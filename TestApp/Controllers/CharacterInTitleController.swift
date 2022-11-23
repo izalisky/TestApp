@@ -21,8 +21,7 @@ class CharacterInTitleController: UIViewController {
         let keys = chars.keys.sorted(by: {$0<$1})
        var str = ""
         for key in keys {
-            str.append("character \"\(key)\" - ")
-            str.append("\(chars[key]!) ")
+            str.append("character \"\(key)\" - \(chars[key]!) ")
             str.append(chars[key]! == 1 ? "time \n" : "times \n")
         }
         textView.text = str
