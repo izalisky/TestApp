@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MoviesResponse :Codable {
+struct MoviesResponse :Decodable {
     var items : [Movie]?
     var errorMessage : String?
 }

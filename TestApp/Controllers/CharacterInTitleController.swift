@@ -8,34 +8,30 @@
 import UIKit
 
 class CharacterInTitleController: UIViewController {
+    
     @IBOutlet weak var textView : UITextView!
     var chars = [String:Int]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Characters In Titles"
+        self.title = NSLocalizedString("Characters In Titles", comment: "")
         self.formatingCharacterInTitleCount()
     }
     
     func formatingCharacterInTitleCount(){
+        let character = NSLocalizedString("character", comment: "")
+        let time = NSLocalizedString("time", comment: "")
+        let times = NSLocalizedString("times", comment: "")
         let keys = chars.keys.sorted(by: {$0<$1})
        var str = ""
         for key in keys {
-            str.append("character \"\(key)\" - \(chars[key]!) ")
-            str.append(chars[key]! == 1 ? "time \n" : "times \n")
+            if let count = chars[key] {
+                str.append(character + " \"\(key)\" - \(count) ")
+                str.append((count == 1 ? time : times) + " \n")
+            }
         }
         textView.text = str
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

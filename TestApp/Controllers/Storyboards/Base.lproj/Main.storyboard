@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OeO-la-TQC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OeO-la-TQC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,13 +12,13 @@
         <!--Character In Title Controller-->
         <scene sceneID="tAS-Dt-580">
             <objects>
-                <viewController id="YyP-Gt-4E1" customClass="CharacterInTitleController" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterInTitleController" id="YyP-Gt-4E1" customClass="CharacterInTitleController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9j-r0-k39">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNz-Qk-Euc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -46,21 +47,22 @@
         <!--Root View Controller-->
         <scene sceneID="2l5-Yl-Xxq">
             <objects>
-                <tableViewController id="KUO-7x-bAq" customClass="MoviesListController" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="OQn-gL-k8P">
+                <tableViewController id="KUO-7x-bAq" customClass="MoviesListController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="OQn-gL-k8P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="Ipa-7q-6fL" customClass="MoviewPreviewCell" customModule="JatAppTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="116.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="Ipa-7q-6fL" customClass="MoviewPreviewCell" customModule="TestApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="414" height="116.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ipa-7q-6fL" id="ug7-fs-CaS">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="116.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="2Do-Te-Xbw">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="2Do-Te-Xbw">
                                             <rect key="frame" x="66" y="8" width="67" height="100.5"/>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="253-IG-ULG"/>
                                                 <constraint firstAttribute="width" constant="67" id="oa8-7S-ByX"/>
@@ -99,7 +101,6 @@
                                     <outlet property="movieImageView" destination="2Do-Te-Xbw" id="AaR-Qz-oLr"/>
                                     <outlet property="movieRankLabel" destination="BKJ-t1-2Cj" id="xJx-YU-csO"/>
                                     <outlet property="movieTitleLabel" destination="hfF-Ax-ziW" id="jUN-To-4k9"/>
-                                    <segue destination="6gV-pz-6Hk" kind="show" identifier="showDetails" id="J01-Mg-0ix"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -111,7 +112,7 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="ILb-8d-EI1">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" style="done" id="vbs-y9-CAR">
                             <connections>
-                                <segue destination="YyP-Gt-4E1" kind="show" identifier="info" id="IrO-J4-RLr"/>
+                                <action selector="openCharterInTitleController" destination="KUO-7x-bAq" id="SgU-nS-YBb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,19 +124,19 @@
         <!--Moview Details Controller-->
         <scene sceneID="hWF-At-SJB">
             <objects>
-                <viewController id="6gV-pz-6Hk" customClass="MoviewDetailsController" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviewDetailsController" id="6gV-pz-6Hk" customClass="MoviewDetailsController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OSX-3X-6ZR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3s-nI-uW9">
-                                <rect key="frame" x="16" y="430.5" width="382" height="21.5"/>
+                                <rect key="frame" x="16" y="390.5" width="382" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kOP-3E-4fN">
-                                <rect key="frame" x="103.5" y="104" width="207" height="310.5"/>
+                                <rect key="frame" x="103.5" y="64" width="207" height="310.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kOP-3E-4fN" secondAttribute="height" multiplier="2:3" id="fUO-bY-86o"/>
                                 </constraints>
@@ -167,7 +168,7 @@
             <objects>
                 <navigationController id="OeO-la-TQC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Mh-93-RQX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -180,10 +181,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="placeholder" width="640" height="330"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

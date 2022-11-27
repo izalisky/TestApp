@@ -8,26 +8,21 @@
 import UIKit
 
 class MoviewDetailsController: UIViewController {
+    
     @IBOutlet weak var movieTitleLabel : UILabel!
     @IBOutlet weak var movieImageView : UIImageView!
     var movie : Movie?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Movie Details"
+        self.title = NSLocalizedString("Movie Details", comment: "")
         movieTitleLabel.text = movie?.title
-        movieImageView.downloadImage(fromUrl: URL(string: movie?.image ?? "")!)
+        if let imageUrl = self.movie?.image {
+            if let url = URL(string: imageUrl){
+                movieImageView.downloadImage(fromUrl: url)
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

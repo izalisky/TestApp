@@ -8,40 +8,43 @@
 import Foundation
 import UIKit
 
-let moviesMaxCount : Int = 10
-
 class MoviesListControllerViewModel : MoviesListControllerDelegate {
+    
     private var isSearch: Bool = false
     private var movies: [Movie]?
     private var filteredMovies: [Movie]?
     var chars = [String:Int]()
+    let moviesMaxCount : Int = 10
     
     var numberOfRows : Int {
-        guard movies != nil else {return 0}
-        let rows = isSearch ? filteredMovies?.count : movies?.count
-        return rows! < moviesMaxCount ? rows! : moviesMaxCount
+        guard movies != nil else { return 0 }
+        if let rows = isSearch ? filteredMovies?.count : movies?.count {
+            return rows < moviesMaxCount ? rows : moviesMaxCount
+        }
+        return 0
     }
     
     
-    func movie(for row:Int)->Movie{
-        if isSearch{ return filteredMovies![row] }
-        return movies![row]
+    func movie(for row:Int) -> Movie? {
+        return isSearch ? filteredMovies?[row] : movies?[row]
     }
+    
     
     func loadMoviesList(_ completion: @escaping (Error?) -> Void) {
-        ApiManager.dataRequest(with: top250MoviesUrl, objectType: MoviesResponse.self) { result in
-            DispatchQueue.main.async {
+        let top250moviesUrl = "https://imdb-api.com/en/API/Top250Movies/k_nnlqtizq"
+        ApiManager.shared.loadTop250MoviesRequest(with: top250moviesUrl) { [weak self] result in
             switch result {
-                case .success(let object):
-                    self.movies = object.items
-                    self.calculateCharRepeats()
-                    completion(nil)
-                case .failure(let error):
+            case .success(let object):
+                if let items = object.items {
+                    self?.movies = items
+                    self?.calculateCharRepeats()
+                }
+            case .error(let error):
                 completion(error)
-            }
             }
         }
     }
+    
     
     func filterMovies(_ searchText: String) {
         isSearch = !searchText.isEmpty
@@ -50,16 +53,19 @@ class MoviesListControllerViewModel : MoviesListControllerDelegate {
       }
     }
     
+    
     func calculateCharRepeats(){
         for i in 0..<moviesMaxCount{
-            let title = self.movies![i].title
-            for c in title {
-                if chars[String(c)] == nil {
-                    chars[String(c)] = 1
-                } else {
-                    chars[String(c)] = chars[String(c)]! + 1
+            if let title = self.movies?[i].title {
+                for c in title {
+                    if let count = chars[String(c)]{
+                        chars[String(c)] = count + 1
+                    } else {
+                        chars[String(c)] = 1
+                    }
                 }
             }
         }
     }
+    
 }

@@ -8,16 +8,10 @@
 import Foundation
 import UIKit
 
-struct Movie : Codable, Equatable {
-    var id : String
+struct Movie : Decodable, Equatable {
     var rank : String
     var title : String
-    var fullTitle : String
-    var year : String
     var image : String
-    var crew : String
-    var imDbRating : String
-    var imDbRatingCount : String
 }
 
 
